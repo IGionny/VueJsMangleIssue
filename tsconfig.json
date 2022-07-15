@@ -1,0 +1,46 @@
+//https://www.typescriptlang.org/docs/handbook/compiler-options.html
+{
+  "compilerOptions": {
+    "strict": true,
+    //"strictFunctionTypes": false, //G.B. 2021-10-22 changed
+    "noImplicitReturns": true,
+    "noEmitOnError": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "rootDir": "src",
+    "removeComments": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    //"noImplicitAny": true, ->strict = true
+    //"noImplicitThis": true, -> strict = true
+    //"inlineSourceMap": true, //needed to debug in chrome if sourceMap is true
+    //"inlineSources": true, //needed to debug in chrome if sourceMap is true
+
+    "target": "ES6",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "lib": [
+      "ES2019.Array",
+      //for flatMap
+      "ES2017.Intl",
+      // Intl and ES2017.String are needed to use padStart string method
+      "ES2017.String",
+      "es2015",
+      //added iterable because it's in use into the JQuery d.ts) 
+      "dom"
+    ],
+    "outDir": "build",
+    "baseUrl": "./"
+    //"must copy those paths into jest.config.js and tsconfig.jest.json!!!",
+  },
+  "compileOnSave": true,
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}
+
