@@ -161,20 +161,30 @@ if (!isProductionMode) {
 
 
 
-  const terseOptions = {
+  const mangleOffOptions = {
     terserOptions: {
       mangle: false
     }
   }
 
+  const keepClassNamesOptions = {
+    terserOptions: {
+      keep_classnames: true
+    }
+  }
+
+
   webPackConf.optimization = {
     minimize: true,
 
-    //This not
-    //minimizer: [new TerserPlugin(terseOptions)],
+    //This works but waste a lot of bytes
+    //minimizer: [new TerserPlugin(mangleOffOptions)],
+
+    //This works and it's size ok!
+    minimizer: [new TerserPlugin(keepClassNamesOptions)],
 
     //This cause the problem:
-    minimizer: [new TerserPlugin()],
+    //minimizer: [new TerserPlugin()],
   };
 }
 

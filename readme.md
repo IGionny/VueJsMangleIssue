@@ -3,6 +3,10 @@
 
 ## Description
 
+__UPDATE__: Fix found in this [VCC issue](https://github.com/vuejs/vue-class-component/issues/407)
+
+__tnx__ a lot to 'skirtle' in Discord Vue Channel
+
 This POC is to show an issue with VueJS 2.x (idk if is present also in Vue 3 but can be) that can happen when the minified code contains the component names (mangling) as
 invalid names (like 'd' or '_a').
 
